@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@angular/material": "^16.0.3",
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3",
+    "chart.js": "^3.7.0",
+    "chartjs-adapter-moment": "^1.0.1",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.29",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.16",
+    "@types/stripe": "^7.13.23"
+  }
+}

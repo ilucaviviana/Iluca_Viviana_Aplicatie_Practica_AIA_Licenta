@@ -1,0 +1,70 @@
+<app-logout-page></app-logout-page>
+<div class="container text-center" style="margin-top: 100px; margin-bottom: 150px; margin-left: 70px; margin-right: 100px;">
+
+<!--Informatii card-->
+<div class="card text-center" style="margin-bottom: 30px">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="true">Informații plată</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">Lista tarifelor de plată lunar</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Apă</th>
+            <th scope="col">Retim</th>
+            <th scope="col">Administrator</th>
+            <th scope="col">Curățenie</th>
+            <th scope="col">Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tarif of tarife">
+            <th scope="row">Info</th>
+            <td>{{tarif.PretApa}} RON/Pers</td>
+            <td>{{tarif.PretRetim}} RON/Ap</td>
+            <td>{{tarif.PretAdmin}} RON/Ap</td>
+            <td>{{tarif.PretCuratenie}} RON/Ap</td>
+            <td>{{tarif.TransmitereData | date: 'yyyy-MM-dd'}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+<!--Informatii card-->
+
+<!--Tabel-->
+<table id="invoiceTable" class="table table-light table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Apă</th>
+      <th scope="col">Retim</th>
+      <th scope="col">Administrator</th>
+      <th scope="col">Curățenie</th>
+      <th scope="col">Data</th>
+      <th scope="col">Total</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let invoice of invoices">
+      <td>{{invoice.TotalApa}} RON</td>
+      <td>{{invoice.TotalRetim}} RON</td>
+      <td>{{invoice.TotalAdmin}} RON</td>
+      <td>{{invoice.TotalCuratenie}} RON</td>
+      <td>{{invoice.TransmitereData | date: 'yyyy-MM-dd'}}</td>
+      <td>{{invoice.TotalApa + invoice.TotalRetim + invoice.TotalAdmin + invoice.TotalCuratenie}} RON</td>
+      <td><button class="btn btn-primary btn-sm"(click)="generatePDF(invoice)">Descarcă factura PDF</button></td>
+      <td><button class="btn btn-primary btn-sm" (click)="payInvoice(invoice)">Plătește</button></td>
+    </tr>
+  </tbody>
+</table>
+<!--Tabel-->
+
+</div>

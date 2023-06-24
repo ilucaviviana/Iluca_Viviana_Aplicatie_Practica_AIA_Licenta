@@ -1,0 +1,152 @@
+<app-logout-page></app-logout-page>
+
+<!-- adresa -->
+<form [formGroup]="locationForm">
+<div class="container" style="margin-top: 50px; margin-bottom: 10px; margin-left: 100px; margin-right: 100px;">
+  <div class="row align-items-start">
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Județ</mat-label>
+        <mat-select [(ngModel)]="selectedJudet" type="text" name="judet" formControlName="judet">
+          <mat-option *ngFor="let JudetDetail of judete" [value]="JudetDetail.NumeJudet">
+            {{ JudetDetail.NumeJudet }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Oraș</mat-label>
+        <mat-select [(ngModel)]="selectedOras" type="text" name="oras" formControlName="oras">
+          <mat-option *ngFor="let OrasDetail of orase" [value]="OrasDetail.NumeOras">
+            {{ OrasDetail.NumeOras }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+        <mat-form-field>
+          <mat-label>Stradă</mat-label>
+          <mat-select [(ngModel)]="selectedStrada" type="text" name="strada" formControlName="strada">
+            <mat-option *ngFor="let StradaDetail of strada" [value]="StradaDetail.NumeStrada">
+              {{ StradaDetail.NumeStrada }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Bloc</mat-label>
+        <mat-select [(ngModel)]="selectedBloc" type="number" name="bloc" formControlName="bloc">
+          <mat-option *ngFor="let BlocDetail of bloc" [value]="BlocDetail.NumarBloc">
+            {{ BlocDetail.NumarBloc }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Apartament</mat-label>
+        <mat-select [(ngModel)]="selectedApartament" type="number" name="apartament" formControlName="apartament">
+          <mat-option *ngFor="let ApartamentDetail of apartament" [value]="ApartamentDetail.NumarApartament">
+            {{ ApartamentDetail.NumarApartament }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <mat-form-field>
+        <mat-label>Locatari</mat-label>
+        <mat-select formControlName="nrlocatari">
+          <mat-option [value]=1>1</mat-option>
+          <mat-option [value]=2>2</mat-option>
+          <mat-option [value]=3>3</mat-option>
+          <mat-option [value]=4>4</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>Apometre</mat-label>
+        <mat-select formControlName="nrapometre">
+          <mat-option [value]=1>1</mat-option>
+          <mat-option [value]=2>2</mat-option>
+          <mat-option [value]=3>3</mat-option>
+          <mat-option [value]=4>4</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col">
+      <button class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true" data-mdb-ripple-color="dark" (click)="onLocationSelected()">Adăugare date</button>
+    </div>
+  </div>
+</div>
+</form>
+<!-- adresa -->
+
+<!--carduri detalii plata-->
+<div class="container text-center" style="margin-top: 50px; margin-bottom: 200px; margin-left: 100px; margin-right: 100px;">
+  <div class="row align-items-start gy-5">
+
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+              <img src="../assets/images/f.jpg" style="width:287px; height: 185px;" class="card-img-top" alt="invoice">
+          <div class="card-body">
+                <h3 class="card-title">Facturi și plăți</h3>
+                <p class="card-text">Aici poți afla informații despre facturile tale recente, ultimile facturi achitate si poți plăti facturile.</p>
+          </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">- suma care e de plătit</li>
+                <li class="list-group-item">- data limită a plății</li>
+              </ul>
+          <div class="card-body">
+              <a href="/plata" class="card-link">Plătește</a>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+              <img src="../assets/images/apo.jpg" style="width:287px; height: 185px;" class="card-img-top" alt="invoice">
+          <div class="card-body">
+                <h3 class="card-title">Citire apometre</h3>
+                <p class="card-text">Aici se transmit datele aflate pe apometrele din locuința dumneavoastră.</p>
+          </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">- date apometre</li>
+                <li class="list-group-item">- ultimile date transmise</li>
+              </ul>
+          <div class="card-body">
+              <a href="/citire" class="card-link">Transmite date</a>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+            <img src="../assets/images/info.jpg" style="width:287px; height: 185px;" class="card-img-top" alt="invoice">
+        <div class="card-body">
+              <h3 class="card-title">Contul meu</h3>
+              <p class="card-text">Aici poți vizualiza, modifica și verifica datele tale personale aflate in baza noastra.</p>
+        </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">- date personale</li>
+              <li class="list-group-item">- resetare praola</li>
+            </ul>
+        <div class="card-body">
+            <a href="/eu" class="card-link">Vizualizează</a>
+        </div>
+      </div>
+  </div>
+
+  </div>
+</div>

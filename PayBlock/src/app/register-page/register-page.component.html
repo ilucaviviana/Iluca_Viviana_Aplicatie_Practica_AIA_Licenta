@@ -1,0 +1,142 @@
+<app-nav-bar></app-nav-bar>
+<p class="text-center fs-3" [ngClass]="isAccountCreated ? 'text-success pb-1' : 'text=danger pb-1'">{{displayMsg}}</p>
+<form [formGroup]="registerForm">
+ <section class="h-100 h-custom gradient-custom-2">
+  <div class="container py-5 h-100" style="margin-top:0px; margin-bottom: 1000px;">
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5" style="color: #000000;">Informații Generale</h3>
+
+                <div class="col-md-6 mb-4 pb-2">
+
+                  <div class="m-1">Utilizator</div>
+                  <div class="form-check from-check-inline">
+                    <input type="radio" class="form-check-input" value=0 id="admin" formControlName="tip"/>
+                    <label class="form-check-label" for="admin">Admin</label>
+                  </div>
+                  <div class="form-check from-check-inline">
+                    <input type="radio" class="form-check-input" value=1 id="ut" formControlName="tip"/>
+                    <label class="form-check-label" for="ut">Utilizator</label>
+                  </div>
+                  <div class="form-text text-danger" *ngIf="Tip.errors?.['required'] && (Tip.touched || Tip.dirty)"> Utilizator necesar!</div>
+
+
+                </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div class="form-outline">
+                        <input type="text" id="nume" placeholder="*Nume" class="form-control form-control-lg" formControlName="nume"/>
+                        <label class="form-label" for="nume"></label>
+                        <div class="form-text text-danger" *ngIf="Nume.errors?.['required'] && (Nume.touched || Nume.dirty)"> Numele este obligatoriu!</div>
+                        <div class="form-text text-danger" *ngIf="Nume.errors?.['minlength'] && (Nume.touched || Nume.dirty)"> Numele este prea scurt!</div>
+                        <div class="form-text text-danger" *ngIf="Nume.errors?.['pattern'] && (Nume.dirty || Nume.touched )"> Numele trebuie sa contina litere!</div>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div class="form-outline">
+                        <input type="text" id="prenume" placeholder="*Prenume" class="form-control form-control-lg" formControlName="prenume" />
+                        <label class="form-label" for="prenume"></label>
+                        <div class="form-text text-danger" *ngIf="Prenume.errors?.['required'] && (Prenume.touched || Prenume.dirty)"> Prenumele este obligatoriu!</div>
+                        <div class="form-text text-danger" *ngIf="Prenume.errors?.['pattern'] && (Prenume.touched || Prenume.dirty)"> Prenumele trebuie sa contina litere!</div>
+                        <div class="form-text text-danger" *ngIf="Prenume.errors?.['minlength'] && (Prenume.touched || Prenume.dirty)"> Prenumele este prea scurt!</div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="email" placeholder="*Email" class="form-control form-control-lg" formControlName="email"/>
+                      <label class="form-label" for="email"></label>
+                      <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)"> Email-ul este obligatoriu!</div>
+                      <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.touched || Email.dirty)"> Email-ul este invalid!</div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div class="form-outline">
+                        <input type="password" id="parola" class="form-control form-control-lg" placeholder="*Parolă" formControlName="parola"/>
+                        <label class="form-label" for="parola"></label>
+                        <div class="form-text text-danger" *ngIf="Parola.errors?.['required'] && (Parola.touched || Parola.dirty)"> Parola este obligatorie!</div>
+                        <div class="form-text text-danger" *ngIf="Parola.errors?.['minlength'] || Parola.errors?.['maxlength'] && (Parola.touched || Parola.dirty)"> Parola trebuie sa aiba cel putin 5 caracetere si maxim 15!</div>
+
+                      </div>
+
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+
+                      <div class="form-outline">
+                        <input type="password" id="confirmare" class="form-control form-control-lg" placeholder="*Confirmare" formControlName="confirmare"/>
+                        <label class="form-label" for="confirmare"></label>
+                        <div class="form-text text-danger" [ngStyle]="{'display': repeatPass}">Parola este invalida</div>
+                        <div class="form-text text-danger" *ngIf="Confirmare.errors?.['required'] && (Confirmare.touched || Confirmare.dirty)"> confirmarea parolei este obligatorie!</div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-lg-6 bg-indigo text-white">
+                <div class="p-5">
+                  <h3 class="fw-normal mb-5">Informații personale</h3>
+
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline">
+                      <input type="text" id="cnp" placeholder="*CNP" class="form-control form-control-lg" formControlName="cnp" />
+                      <label class="form-label" for="cnp"></label>
+                      <div class="form-text text-danger" *ngIf="cnp.errors?.['required'] && (cnp.touched || cnp.dirty)"> CNP este obligatoriu!</div>
+                      <div class="form-text text-danger" *ngIf="cnp.errors?.['pattern'] && (cnp.touched || cnp.dirty)"> CNP este invalid!</div>
+                      <div class="form-text text-danger" *ngIf="cnp.errors?.['minlength'] && (cnp.touched || cnp.dirty)"> CNP de telefon este invalid!</div>
+                      <div class="form-text text-danger" *ngIf="cnp.errors?.['maxlength'] && (cnp.touched || cnp.dirty)"> CNP de telefon este invalid!</div>
+
+                    </div>
+                  </div>
+
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline form-white">
+                      <input type="text" id="telefon" placeholder="*Telefon" class="form-control form-control-lg" formControlName="telefon" />
+                      <label class="form-label" for="telefon"></label>
+                      <div class="form-text text-danger" *ngIf="Tel.errors?.['required'] && (Tel.touched || Tel.dirty)"> Telefonul este obligatoriu!</div>
+                      <div class="form-text text-danger" *ngIf="Tel.errors?.['pattern'] && (Tel.touched || Tel.dirty)"> Numarul de telefon este invalid!</div>
+                      <div class="form-text text-danger" *ngIf="Tel.errors?.['minlength'] && (Tel.touched || Tel.dirty)"> Numarul de telefon este invalid!</div>
+                      <div class="form-text text-danger" *ngIf="Tel.errors?.['maxlength'] && (Tel.touched || Tel.dirty)"> Numarul de telefon este invalid!</div>
+
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-start mb-4 pb-3">
+                    <input class="form-check-input me-3" type="checkbox" value="" id="check" />
+                    <label class="form-check-label text-white" for="check">
+                      Accept <a href="/contact" class="text-white"><u>Termenii și Condițiile</u></a> site-ului dumneavoastră.
+                    </label>
+                  </div>
+                  <button type="submit" [disabled]="registerForm.invalid" class="btn btn-light btn-lg" (click)="registerSubmited()">Înregistrare</button>
+
+                  <div class="justify-content-start mb-4 pb-3">
+                    <label class="form-check-label text-white" for="form2Example3">
+                      Ai deja cont? <a href="/sign" class="text-white"><u>Loghează-te</u></a> pe site-ul nostru pentru a plăti mai ușor cheltuieliile locuinței tale.
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </section>
+</form>
+

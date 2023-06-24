@@ -1,0 +1,163 @@
+<app-logout-page></app-logout-page>
+<div class="container" style="margin-top: 50px; margin-bottom: 70px; margin-left: 70px">
+
+  <!--Informatii card-->
+  <div class="card text-center" style="margin-bottom: 30px">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="true">Informații</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">Citire apometre</h3>
+      <p class="card-text">Se introduce doar cifrele care nu contin zero.</p>
+      <p>Apometru 1 și Apometru 2 - Apometre pentru luna precedentă.</p>
+      <p>Apometru 3 și Apometru 4 - Apometre pentru luna curentă.</p>
+    </div>
+    </div>
+    <!--Informatii card-->
+
+    <!--Tabel-->
+
+    <div class="container-fluid" style="margin-top: 50px">
+      <h4>Datele apometrelor:</h4>
+
+      <table class="table table-light table-striped table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Apometre pentru luna curentă</th>
+            <th scope="col"></th>
+            <th scope="col">Apometre pentru luna precedentă</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Apometru 1</th>
+            <th scope="col">Apometru 2</th>
+            <th scope="col">Apometru 3</th>
+            <th scope="col">Apometru 4</th>
+            <th scope="col">Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of userApometreData; index as i">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{data.Ap1}}</td>
+            <td>{{data.Ap2}}</td>
+            <td>{{data.Ap3}}</td>
+            <td>{{data.Ap4}}</td>
+            <td>{{data.TransmitereData | date: 'yyyy-MM-dd' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <!--Tabel-->
+<form [formGroup]="ApometruForm">
+  <div class="container-fluid" style="margin-top: 50px">
+   <strong>Transmitere date:</strong>
+    <!--Citire apometru-->
+  <p>Apometre luna curentă:</p>
+  <!-- Apometru 1 remains the same -->
+<div class="row">
+  <div class="col-9">
+    <label class="visually-hidden"></label>
+    <div class="input-group">
+      <div class="input-group-text">Apometru 1</div>
+      <input type="text" class="form-control" id="Ap1" placeholder="Ap1" formControlName="Ap1">
+      <label class="form-label" for="Ap1"></label>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="form-text text-danger error-message" *ngIf="Ap1.touched || Ap1.dirty">
+      <span *ngIf="Ap1.errors?.['required']">Apometrul este obligatoriu! </span>
+      <span *ngIf="Ap1.errors?.['minlength']">Numarul este prea scurt! </span>
+      <span *ngIf="Ap1.errors?.['maxlength']">Numarul este prea lung!</span>
+      <div class="form-text text-danger" *ngIf="ApometruForm.hasError('Ap1LessThanAp3')">
+        Valoarea trebuie să fie mai mare ca Ap3!
+     </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Apometru 2 -->
+<div class="row">
+  <div class="col-9">
+    <label class="visually-hidden"></label>
+    <div class="input-group">
+      <div class="input-group-text">Apometru 2</div>
+      <input type="text" class="form-control" id="Ap2" placeholder="Ap2" formControlName="Ap2">
+      <label class="form-label" for="Ap2"></label>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="form-text text-danger error-message" *ngIf="Ap2.touched || Ap2.dirty">
+      <span *ngIf="Ap2.errors?.['required']">Apometrul este obligatoriu! </span>
+      <span *ngIf="Ap2.errors?.['minlength']">Numarul este prea scurt! </span>
+      <span *ngIf="Ap2.errors?.['maxlength']">Numarul este prea lung!</span>
+      <div class="form-text text-danger" *ngIf="ApometruForm.hasError('Ap2LessThanAp4')">
+        Valoarea trebuie să fie mai mare ca Ap4!
+     </div>
+    </div>
+  </div>
+</div>
+<p>Apometre luna precedentă:</p>
+<!-- Apometru 3 -->
+<div class="row">
+  <div class="col-9">
+    <label class="visually-hidden"></label>
+    <div class="input-group">
+      <div class="input-group-text">Apometru 3</div>
+      <input type="text" class="form-control" id="Ap3" placeholder="Ap3" formControlName="Ap3">
+      <label class="form-label" for="Ap3"></label>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="form-text text-danger error-message" *ngIf="Ap3.touched || Ap3.dirty">
+      <span *ngIf="Ap3.errors?.['required']">Apometrul este obligatoriu! </span>
+      <span *ngIf="Ap3.errors?.['minlength']">Numarul este prea scurt! </span>
+      <span *ngIf="Ap3.errors?.['maxlength']">Numarul este prea lung!</span>
+    </div>
+  </div>
+</div>
+
+<!-- Apometru 4 -->
+<div class="row">
+  <div class="col-9">
+    <label class="visually-hidden"></label>
+    <div class="input-group">
+      <div class="input-group-text">Apometru 4</div>
+      <input type="text" class="form-control" id="Ap4" placeholder="Ap4" formControlName="Ap4">
+      <label class="form-label" for="Ap4"></label>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="form-text text-danger error-message" *ngIf="Ap4.touched || Ap4.dirty">
+      <span *ngIf="Ap4.errors?.['required']">Apometrul este obligatoriu! </span>
+      <span *ngIf="Ap4.errors?.['minlength']">Numarul este prea scurt! </span>
+      <span *ngIf="Ap4.errors?.['maxlength']">Numarul este prea lung!</span>
+    </div>
+  </div>
+</div>
+
+
+    <div class="row">
+      <div class="col-12">
+        <button type="submit" class="btn btn-dark" [disabled]="ApometruForm.invalid" (click)="Apometru()">Transmite</button>
+      </div>
+    </div>
+</div>
+</form>
+<!--Citire apometru-->
+  </div>
+
+
+

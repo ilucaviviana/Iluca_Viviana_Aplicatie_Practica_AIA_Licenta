@@ -1,0 +1,67 @@
+.bg-indigo {
+  background-color: #1b5d7d;
+  }
+  @media (min-width: 992px) {
+  .card-registration-2 .bg-indigo {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  }
+  }
+  @media (max-width: 992px) {
+  .card-registration-2 .bg-indigo {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  }
+
+  }
+  .my-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .my-button:hover {
+    background-color: #3e8e41;
+  }
+
+  .my-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+
+  .button-group {
+    display: flex;
+    gap: 10px; /* Adjust the spacing between buttons */
+  }
+
+  .button-group button {
+    padding: 5px 10px; /* Adjust the padding to make the buttons smaller */
+    font-size: 14px; /* Adjust the font size for the button text */
+    margin-top: 10px;
+  }
+
+  .form-group{
+    margin-top: 10px;
+  }
+
+  .form-control{
+    width: 200px; /* Adjust the width of the input field */
+    height: 30px; /* Adjust the height of the input field */
+    font-size: 14px; /* Adjust the font size of the input text */
+  }
+
+  .submit-btn{
+    padding: 5px 10px; /* Adjust the padding to make the buttons smaller */
+    font-size: 14px; /* Adjust the font size for the button text */
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }

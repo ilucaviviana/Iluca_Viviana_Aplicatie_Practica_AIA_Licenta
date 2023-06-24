@@ -1,0 +1,6 @@
+.btn{
+  padding: 5px 10px; /* Adjust the padding to make the buttons smaller */
+    font-size: 14px; /* Adjust the font size for the button text */
+    margin-left: 10px;
+    margin-bottom: 10px;
+}

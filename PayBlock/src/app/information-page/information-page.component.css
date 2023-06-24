@@ -1,0 +1,10 @@
+body {
+  font: 20px Montserrat, sans-serif;
+  line-height: 1.8;
+  color: #1b5d7d;
+       }
+  .container-fluid {
+padding-top: 30px;
+padding-bottom: 30px;
+}
+

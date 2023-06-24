@@ -1,0 +1,67 @@
+<app-nav-bar></app-nav-bar>
+<section class="h-100 h-custom gradient-custom-2">
+  <form [formGroup]="loginForm">
+  <div class="container py-5 h-100" style="margin-top:0px; margin-bottom: 50px;">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <h2 class="fw-normal mb-5" style="color: #000000;">PayBlock - alături de tine!</h2>
+                </div>
+              </div>
+              <div class="col-lg-6 bg-indigo text-white">
+                <div class="p-5">
+                  <h2 class="fw-normal mb-5">Loghează-te folosind contul!</h2>
+
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="m-1">Utilizator</div>
+                    <div class="form-check from-check-inline">
+                      <input type="radio" class="form-check-input" value=0 id="admin" formControlName="tip"/>
+                      <label class="form-check-label" for="admin">Admin</label>
+                    </div>
+                    <div class="form-check from-check-inline">
+                      <input type="radio" class="form-check-input" value=1 id="ut" formControlName="tip"/>
+                      <label class="form-check-label" for="ut">Utilizator</label>
+                    </div>
+                    <div class="form-text text-danger" *ngIf="Tip.errors?.['required'] && (Tip.touched || Tip.dirty)"> Utilizator necesar!</div>
+
+                </div>
+
+                  <div class="mb-4">
+                    <div class="form-outline ">
+                      <input type="text" id="email" placeholder="*Email" class="form-control form-control-lg" formControlName="email"/>
+                      <label class="form-label" for="email"></label>
+                      <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)"> Email-ul este obligatoriu!</div>
+                      <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.touched || Email.dirty)"> Email-ul este invalid!</div>
+                    </div>
+                  </div>
+                      <div class="form-outline">
+                        <input type="password" id="parola" class="form-control form-control-lg" placeholder="*Parolă" formControlName="parola"/>
+                        <label class="form-label" for="parola"></label>
+                        <div class="form-text text-danger" *ngIf="Parola.errors?.['required'] && (Parola.touched || Parola.dirty)"> Parola este obligatorie!</div>
+                        <div class="form-text text-danger" *ngIf="Parola.errors?.['minlength'] || Parola.errors?.['maxlength'] && (Parola.touched || Parola.dirty)"> Parola trebuie sa aiba cel putin 5 caracetere si maxim 15!</div>
+                      </div>
+
+
+
+                 <div class="justify-content-start mb-4 pb-3">
+                    <label class="form-check-label text-white" for="form2Example3">
+                      Ești nou? Crează un <a href="/register" class="text-white"><u>cont</u></a> pe site-ul nostru pentru a plăti mai ușor cheltuieliile locuinței tale.
+                    </label>
+                  </div>
+
+                  <button class="btn btn-light btn-lg" [disabled]="loginForm.invalid" (click)="Login()">Sign in</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+</section>

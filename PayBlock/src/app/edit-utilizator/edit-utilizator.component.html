@@ -1,0 +1,34 @@
+<app-logout-page></app-logout-page>
+<div class="container" style="margin-top: 50px; margin-bottom: 70px; margin-left: 100px">
+<div class="container">
+  <h1>Editare date personale</h1>
+  <form (ngSubmit)="saveUtilizator()" *ngIf="utilizator">
+    <div class="form-group col-sm-3 mb-3">
+      <label for="nume">Nume</label>
+      <input type="text" class="form-control" id="nume" [(ngModel)]="utilizator.Nume" name="nume">
+    </div>
+    <div class="form-group col-sm-3 mb-3">
+      <label for="prenume">Prenume</label>
+      <input type="text" class="form-control" id="prenume" [(ngModel)]="utilizator.Prenume" name="prenume">
+    </div>
+    <div class="form-group col-sm-3 mb-3">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" [(ngModel)]="utilizator.Email" name="email">
+    </div>
+    <div class="form-group col-sm-3 mb-3">
+      <label for="parola">Parola</label>
+      <input type="password" class="form-control" id="parola" [(ngModel)]="utilizator.Parola" name="parola">
+    </div>
+    <div class="form-group col-sm-3 mb-3">
+      <label for="telefon">Telefon</label>
+      <input type="text" class="form-control" id="telefon" [(ngModel)]="utilizator.Telefon" name="telefon">
+    </div>
+    <div class="form-group col-sm-3 mb-3">
+      <label for="cnp">CNP</label>
+      <input type="text" class="form-control" id="cnp" [(ngModel)]="utilizator.Cnp" name="cnp">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+  <div *ngIf="!utilizator">Loading...</div>
+</div>
+</div>

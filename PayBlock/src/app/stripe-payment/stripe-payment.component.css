@@ -1,0 +1,18 @@
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+.card-element {
+  align-items: center;
+  min-width: 300px;
+  max-width: 600px;
+  width: 50%;
+}
+
+.center-button {
+  display: block;
+  margin: 20px auto 0 auto; /* This will center the button and give it a 20px top margin */
+}

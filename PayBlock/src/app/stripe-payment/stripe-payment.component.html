@@ -1,0 +1,20 @@
+<app-logout-page></app-logout-page>
+
+<div class="card-wrapper">
+<div class="card-element mb-3">
+
+  <img class="card-img-top" src="assets/images/coperta.jpg" alt="Card image cap" width="150" height="200">
+  <div class="card-body">
+    <h3 class="card-title text-center">Vă rugăm introduceți datele cardului!</h3>
+
+      <div id="card-element">
+        <!-- A Stripe Element will be inserted here. -->
+      </div>
+
+      <!-- Used to display form errors. -->
+      <div id="card-errors" role="alert">{{cardErrors}}</div>
+
+      <button class="btn btn-primary center-button" (click)="pay(invoice)">Plătește</button>
+  </div>
+</div>
+</div>

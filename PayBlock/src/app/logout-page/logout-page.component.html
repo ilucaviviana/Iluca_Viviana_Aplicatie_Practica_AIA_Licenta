@@ -1,0 +1,56 @@
+<!-- Navbar content -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1b5d7d;">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="userRole === 'admin' ? '/admin' : '/detail'">PayBlock</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="userRole === 'user'">
+          <a class="nav-link" href="/citire">Apometre</a>
+        </li>
+        <li class="nav-item" *ngIf="userRole === 'user'">
+          <a class="nav-link" href="/plata">Plată</a>
+        </li>
+        <li class="nav-item" *ngIf="userRole === 'user'">
+          <a class="nav-link" href="/eu">Cont personal</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" data-bs-toggle="modal" data-bs-target="#logout">Log out</a>
+        </li>
+
+        <!--Modal-->
+        <div class="modal" id="logout" tabindex="-1" aria-labelledby="logout" aria-hidden="true" #logoutModal>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="logout">Deconectare</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Sigur doriți să vă deconectați?</p>
+              </div>
+              <div class="modal-footer">
+                <a type="button" class="btn btn-secondary" (click)="logoutUser()">Da</a>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Nu, revin</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Modal-->
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Navbar content -->
+
