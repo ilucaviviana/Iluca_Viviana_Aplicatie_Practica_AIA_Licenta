@@ -1,6 +1,6 @@
 # Ilucă_Viviana_Aplicatie_Practica_AIA_Licenta
 
-A payment application for the expenses of a building create with Angular, .NET Core and SQL.
+A payment application for the expenses of a building, created with Angular, .NET Core and SQL.
 
 Installation Guid: Clone the repository on your own computer.
 
