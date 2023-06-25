@@ -61,7 +61,16 @@
       <td>{{invoice.TransmitereData | date: 'yyyy-MM-dd'}}</td>
       <td>{{invoice.TotalApa + invoice.TotalRetim + invoice.TotalAdmin + invoice.TotalCuratenie}} RON</td>
       <td><button class="btn btn-primary btn-sm"(click)="generatePDF(invoice)">Descarcă factura PDF</button></td>
-      <td><button class="btn btn-primary btn-sm" (click)="payInvoice(invoice)">Plătește</button></td>
+      <td>
+        <button class="btn btn-primary btn-sm"
+        (click)="payInvoice(invoice)"
+        [disabled]="invoice.IsPaid"
+        matTooltip="Această factură a fost deja plătită!"
+        matTooltipShowDelay="1000">
+    Plătește
+</button>
+
+    </td>
     </tr>
   </tbody>
 </table>

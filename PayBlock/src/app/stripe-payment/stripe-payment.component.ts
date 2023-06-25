@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit , Output} from '@angular/core';
 import { Router } from '@angular/router';
 declare var Stripe: any;
+import { MatDialog } from '@angular/material/dialog';
+import { AlertPaymentComponent } from '../alert/alert-payment/alert-payment.component';
+
 
 @Component({
   selector: 'app-stripe-payment',
@@ -15,11 +18,11 @@ export class StripePaymentComponent implements OnInit {
   clientSecret: string;
 
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {
     this.clientSecret = '';
   }
 
-
+  @Output() invoicePaid: EventEmitter<any> = new EventEmitter<any>();
   @Input() invoices: any[] = [];
   invoice: any;
 
@@ -50,9 +53,19 @@ export class StripePaymentComponent implements OnInit {
     if (error) {
       console.log('Something is wrong:', error);
     } else if (paymentIntent.status === 'succeeded') {
+      this.invoicePaid.emit(this.invoice.IdFactura);
       console.log('Success!', paymentIntent);
-      alert('Successful payment! You will be redirected in 5 seconds.');
-      setTimeout(() => this.router.navigate(['/plata']), 5000);
+      const dialogRef = this.dialog.open(AlertPaymentComponent);
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Dialog result:', result); // should print 'ok'
+        if (result === 'ok') {
+          setTimeout(() => this.router.navigate(['/plata']), 2000);
+        }
+      });
+      this.http.put(`https://localhost:44316/api/Factura/${this.invoice.IdFactura}`, { ...this.invoice, IsPaid: true })
+    .subscribe(response => console.log('Invoice updated as paid'), error => console.error('Error updating invoice', error));
+
     }
   }
 

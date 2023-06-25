@@ -20,8 +20,7 @@ namespace API.Models
         public decimal? AdminUsage { get; set; }
         public decimal? CuratenieUsage { get; set; }
         public DateTime? TransmitereData { get; set; }
-
-       // public bool IsPaid { get; set; } // Added field
+        public bool? IsPaid { get; set; }
 
         public virtual Utilizator IdUtilizatorNavigation { get; set; }
     }

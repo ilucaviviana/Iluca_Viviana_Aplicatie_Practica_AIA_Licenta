@@ -34,6 +34,7 @@ import { AlreadySubmittedDialogComponent } from './alert/already-submitted-dialo
 import { FooterComponent } from './footer/footer.component';
 import { StripePaymentComponent } from './stripe-payment/stripe-payment.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -69,6 +70,7 @@ export function tokenGetter() {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatTooltipModule,
     FormsModule,
     MatDialogModule,
     ReactiveFormsModule,

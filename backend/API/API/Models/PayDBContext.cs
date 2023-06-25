@@ -98,7 +98,7 @@ namespace API.Models
             modelBuilder.Entity<Factura>(entity =>
             {
                 entity.HasKey(e => e.IdFactura)
-                    .HasName("PK__Factura__50E7BAF157512CD6");
+                    .HasName("PK__Factura__50E7BAF1188B163B");
 
                 entity.Property(e => e.AdminUsage).HasColumnType("decimal(20, 0)");
 
@@ -124,7 +124,7 @@ namespace API.Models
                     .WithMany(p => p.Factura)
                     .HasForeignKey(d => d.IdUtilizator)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Factura__Id_util__1EA48E88");
+                    .HasConstraintName("FK__Factura__Id_util__2CF2ADDF");
             });
 
             modelBuilder.Entity<Judet>(entity =>

@@ -10456,11 +10456,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Viviana\\Desktop\\Licenta\\backend\\API\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Viviana\\Desktop\\Licenta_Git\\Licenta_ILUCA_Viviana\\backend\\API\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Viviana\\Desktop\\Licenta\\backend\\API\\API\\API.csproj",
+      "projectPath": "C:\\Users\\Viviana\\Desktop\\Licenta_Git\\Licenta_ILUCA_Viviana\\backend\\API\\API\\API.csproj",
       "packagesPath": "C:\\Users\\Viviana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Viviana\\Desktop\\Licenta\\backend\\API\\API\\obj\\",
+      "outputPath": "C:\\Users\\Viviana\\Desktop\\Licenta_Git\\Licenta_ILUCA_Viviana\\backend\\API\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

@@ -50,17 +50,7 @@ dataApo varchar(30)
 );
 
 
-create table dbo.Facturi(
-IDUser int NOT NULL PRIMARY KEY,
-IDLoc int NOT NULL FOREIGN KEY REFERENCES Locatii(IDLocatii),
-totalRece varchar(30),
-totalRetim varchar(30),
-administrator varchar(20),
-curatenie varchar(15),
-impozit varchar(15),
-dataPlata varchar(30),
-totalPlata varchar(50),
-);
+
 
 create table dbo.Tarife(
 IDTarife int NOT NULL PRIMARY KEY,
@@ -139,7 +129,8 @@ ApaUsage decimal(20),
 RetimUsage decimal(20),
 AdminUsage decimal(20),
 CuratenieUsage decimal(20),
-TransmitereData date
+TransmitereData date,
+IsPaid bit
 );
 
 drop table Factura

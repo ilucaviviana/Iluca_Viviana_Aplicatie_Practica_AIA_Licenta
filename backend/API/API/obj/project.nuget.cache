@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "id+LH+1FvGygHvXMhqpKGR0XPOB4byoHVzopemzU6icNp6neQ7T/ufHoKTxxDWNLDPe/WbqWpmdV/xerNbYdug==",
+  "dgSpecHash": "TO+M5nh1++l+SC6JzoLFzg//UIKbR811Dycp7aeu2JlXJpmEWstfbTArLZwKgPfGqQepc+041Zk2ry27Fvs09Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Viviana\\Desktop\\Licenta\\backend\\API\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\Viviana\\Desktop\\Licenta_Git\\Licenta_ILUCA_Viviana\\backend\\API\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Viviana\\.nuget\\packages\\documentformat.openxml\\2.20.0\\documentformat.openxml.2.20.0.nupkg.sha512",
     "C:\\Users\\Viviana\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
