@@ -1,4 +1,4 @@
-# Licenta_ILUCA_Viviana
+# Ilucă_Viviana_Aplicatie_Practica_AIA_Licenta
 
 A payment application for the expenses of a building create with Angular, .NET Core and SQL.
 
